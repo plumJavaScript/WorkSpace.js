@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opacity</title>
+<meta charset="utf-8">
+<style> 
+.opaque {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+	top:0px;
+	left:0px;
+    background-color: lightblue;
+    border: 1px solid black;
+	opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div id="opaque" class="opaque">Click me</div>
+
+<script>
+
+document.getElementById("opaque").addEventListener("click", fade);
+
+//document.getElementById("opaque").style.opacity = 1;
+
+var div = document.createElement("div");
+div.class="opaque";
+
+    document.body.appendChild(div);
+
+function fade() {
+	var s = document.getElementById("opaque").style;
+	
+	s.opacity -= 0.05;
+	
+	if (s.opacity < 0) return;
+	
+	setTimeout(fade,40);
+}
+
+</script>
+
+</body>
+</html>

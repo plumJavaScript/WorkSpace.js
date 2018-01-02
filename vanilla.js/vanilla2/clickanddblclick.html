@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>click & dbclick</title>
+	<meta charset="utf-8">
+	
+	<style> 
+		.carre{
+		background-color:red;
+		width:100px;
+		height:100px;
+	}
+	</style>
+	
+</head>
+	
+<body>
+
+	<div id="carre1" class="carre">Carre1</div>
+
+	<script>
+		// addEventListener permet d'enregistrer un écouteur 
+	
+		document.getElementById("carre1").addEventListener("click", function(e) {
+			e.target.innerHTML = e.type; //e.type = "click"
+		});
+		
+		document.getElementById("carre1").addEventListener("dblclick",afficherDbClick);
+		
+		function afficherDbClick(e){
+			var target = e.target;
+			target.innerHTML = e.type; //e.type = "dblclick"
+		}
+		
+	</script>
+	
+</body>
+</html>

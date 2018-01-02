@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opacity</title>
+<meta charset="utf-8">
+<style> 
+.opaque {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+	top:0px;
+	left:0px;
+    background-color: lightblue;
+    border: 1px solid black;
+	opacity:1;
+}
+</style>
+
+</head>
+<body>
+<script>
+var btn = document.createElement("div");        // Create a <button> element
+var att = document.createAttribute("class");       // Create a "class" attribute
+att.value = "opaque";                           // Set the value of the class attribute
+btn.setAttributeNode(att);  
+
+var t = document.createTextNode("CLICK ME");       // Create a text node
+btn.appendChild(t);
+
+document.body.appendChild(btn);
+btn.style.left = "100px";
+btn.style.width="150px";
+btn.style.background = "blue";
+
+var btn2 = document.createElement("div");
+
+btn2.style.position="absolute";
+
+var att = document.createAttribute("class");       // Create a "class" attribute
+att.value = "xxx";                           // Set the value of the class attribute
+btn2.setAttributeNode(att);
+
+
+btn2.style.backgroundColor = "red";
+btn2.style.width="250px";
+btn2.style.height="12px";
+btn2.style.left="500px";
+btn2.style.opacity=0.5;
+
+document.body.appendChild(btn2);
+
+
+</script>
+</body>
+</html>

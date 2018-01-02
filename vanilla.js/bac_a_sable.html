@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#opaque {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+	top:0px;
+	left:0px;
+    background-color: lightblue;
+    border: 1px solid black;
+	opacity:0;
+}
+</style>
+</head>
+<body>
+
+<div id="opaque">Click me</div>
+
+<script>
+
+document.getElementById("opaque").addEventListener("click", bouclefor);
+document.getElementById("opaque").addEventListener("mouseover",moveOpaque);
+
+document.getElementById("opaque").style.opacity = 1;
+
+var opacity_top = 10;
+var opacity_left = 15;
+
+document.getElementById("opaque").style.left = opacity_left +"px";
+document.getElementById("opaque").style.top = opacity_top + "px";
+
+function fade() {
+    //alert("hello" + document.getElementById("opaque").style.opacity);
+	
+    //document.getElementById("opaque").style.opacity = "0.5";
+	var s = document.getElementById("opaque").style;
+	s.opacity -= 0.05;
+	
+	if (s.opacity < 0) return;
+	
+	setTimeout(fade,40);
+}
+var taille = 10;
+var width_opaque = 80;
+var c=0;
+function bouclefor(){
+
+var s = document.getElementById("opaque").style;
+	for( var i=0; i<10; i++){
+		
+		sleep(500);
+		
+		if(taille > 0 ) {
+		  taille = -20;
+		}
+		else{
+		taille =  20;
+		}
+		
+		s.width = (width_opaque+taille)+"px";
+	c++;
+	}
+	//if(c<10) setTimeout(bouclefor,40);
+}
+
+
+function helloClick(){
+	alert("Touché");
+}
+
+function helloMouseOver(){
+	alert("move");
+
+}
+
+function moveOpaque(){
+    opacity_top += 10;
+	opacity_left += 20;
+	document.getElementById("opaque").style.left = opacity_left +"px";
+    document.getElementById("opaque").style.top = opacity_top + "px";
+}
+
+
+
+function sleep(miliseconds) {
+   var currentTime = new Date().getTime();
+
+   while (currentTime + miliseconds >= new Date().getTime()) {
+   }
+}
+</script>
+
+</body>
+</html>
+

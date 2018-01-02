@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opacity</title>
+<meta charset="utf-8">
+<style> 
+#opaque {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+	top:0px;
+	left:0px;
+    background-color: lightblue;
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<div id="opaque">Click me</div>
+
+<script>
+
+//document.getElementById("opaque").addEventListener("click", bouclefor);
+function moveOpaque(){
+console.log("moveOpaque");
+    opacity_top += 10;
+	opacity_left += 20;
+	document.getElementById("opaque").style.left = opacity_left +"px";
+    document.getElementById("opaque").style.top = opacity_top + "px";
+}
+
+new Promise(function(resolve, reject) { 
+	// A mock async action using setTimeout
+	setTimeout(function() { resolve(10); }, 3000);
+})
+.then(function(num) { 
+console.log('first then: ', num);
+var opacity_top =100;
+	opacity_left= 200;
+	document.getElementById("opaque").style.left = opacity_left +"px";
+    document.getElementById("opaque").style.top = opacity_top + "px"; return num*2;})
+.then(function(num) { console.log('second then: ', num); return num * 2; })
+.then(function(num) { console.log('last then: ', num);});
+
+</script>
+
+</body>
+</html>
